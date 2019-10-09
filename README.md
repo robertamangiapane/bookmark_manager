@@ -23,3 +23,7 @@ I would like to be able to save URLs and their title to Bookmark Manager
 2. Create database using psql command CREATE DATABASE bookmark_manager
 3. Connect to database using psql command \c bookmark_manager
 4. Run script in /db/migrations/    01_create_bookmarks_table.sql
+
+#To set up the test environment
+1. Create a test database using psql command CREATE DATABASE bookmark_manager_test
+2. Repeat step 3 and 4 of the database set up to connect to the test database and create a test table.
