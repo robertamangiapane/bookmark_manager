@@ -28,4 +28,37 @@ describe Bookmark do
       expect(bookmarks.first.url).to eq 'http://www.makersacademy.com'
     end
   end
+
+  describe '#delete' do
+    it 'deletes a bookmark' do
+      bookmark = Bookmark.create(url: "http://www.google.com", title: "Google")
+      Bookmark.delete(id: bookmark.id)
+      expect(Bookmark.show_all.length).to eq 0
+    end
+  end
+
+  describe '#find' do
+    it 'return the requested bookmark object' do
+      bookmark = Bookmark.create(title: 'Maker Academy', url: 'http://www.makersacademy.com')
+
+      result = Bookmark.find(id: bookmark.id)
+
+      expect(result).to be_a Bookmark
+      expect(result.id).to eq bookmark.id
+      expect(result.title).to eq 'Maker Academy'
+      expect(result.url).to eq 'http://www.makersacademy.com'
+    end
+  end
+
+  describe '#update' do
+    it 'updates the bookmark' do
+      bookmark = Bookmark.create(title: 'Google', url: 'http://www.google.com')
+      updated_bookmark = Bookmark.update(id: bookmark.id, url: 'http://www.google.it', title: 'Google ITA')
+
+      expect(updated_bookmark).to be_a Bookmark
+      expect(updated_bookmark.id).to eq bookmark.id
+      expect(updated_bookmark.title).to eq 'Google ITA'
+      expect(updated_bookmark.url).to eq 'http://www.google.it'
+    end
+  end
 end
