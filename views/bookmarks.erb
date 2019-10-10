@@ -1,0 +1,14 @@
+
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <a href="<%=bookmark.url%>"
+      <%= bookmark.title%>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/'>
+  <input type='submit' value='Go to index'/>
+</form>
